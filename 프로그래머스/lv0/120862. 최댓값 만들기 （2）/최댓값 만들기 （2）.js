@@ -7,10 +7,7 @@ const solution = (numbers) => {
         for(let j = 0; j < newArray.length; j++){
             maxMultipleNum.push(numbers[i] * newArray[j])
             }
-        
         result.push(Math.max(...maxMultipleNum))
         }
-    const real = result.sort((a,b) => b-a)
-
-    return real[0];
+    return result.sort((a,b) => b-a)[0]
 }

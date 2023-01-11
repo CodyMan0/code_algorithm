@@ -1,17 +1,7 @@
 function solution(a, b) {
-    if(a === b) return a || b;
-    
-    let answer = 0;
-    
-    const bigArg = a < b ? b : a    
-    const smallArg = a > b ? b : a  
-    console.log(bigArg)
-    console.log(smallArg)
-
-    let result = [];
-    
-    for (let i = smallArg ; i <= bigArg; i ++) {
-        result.push(i)
+    let result=0
+    for(let i=Math.min(a,b);i<=Math.max(a,b);i++){
+        result+=i
     }
-    return result.reduce((a,b)=>(a+b),0);
+    return result   
 }

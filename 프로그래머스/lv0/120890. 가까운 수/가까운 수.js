@@ -8,7 +8,5 @@ function solution(array, n) {
             result = array[i]
         }
     }
-
-    console.log(result)
     return result;
 }

@@ -3,17 +3,14 @@
 function solution(arr) {
 	let answer = arr;
 
-	for (let i = 0; i < arr.length - 1; i++) {
-		let minValue = i;
+	for (let i = 0; i < arr.length; i++) {
 		for (let j = i + 1; j < arr.length; j++) {
-			if (arr[j] < arr[minValue]) {
-				minValue = j;
+			if (arr[j - 1] > arr[j]) {
+				let temp = arr[j];
+				arr[j] = arr[j - 1];
+				arr[j - 1] = temp;
 			}
 		}
-		console.log(minValue);
-		let temp = arr[i];
-		arr[i] = arr[minValue];
-		arr[minValue] = temp;
 	}
 
 	return answer;

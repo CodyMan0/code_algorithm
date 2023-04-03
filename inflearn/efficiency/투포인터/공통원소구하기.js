@@ -11,7 +11,7 @@ function solution(arr1, arr2) {
 			}
 		}
 	}
-
+`
 	return answer.sort((a, b) => a - b);
 }
 

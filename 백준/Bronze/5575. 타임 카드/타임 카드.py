@@ -1,36 +1,9 @@
-
-for i in range(3) :
-    data = list(map(int, input().split()))
-
-    start = data[:3]
-    end = data[3:]
-    [h,m,s] = [0]*3
-  
-    h = end[0] - start[0]
-    if end[1] - start[1] < 0 :
-        if h < 0 :
-            h = 22 - h 
-        else :
-            h -= 1
-        m = 60 - (start[1] - end[1])
-    else : 
-        m = end[1] - start[1]
-        
-      
-    if end[2] - start[2] < 0 :
-        if m == 0 :
-            m = 59
-            h -= 1
-        else :
-            m -= 1
-        s = 60 - (start[2] - end[2])
-    else :
-        s = end[2] - start[2]
-    
-    print(h,m,s ,sep=' ')
-
-
-
-
-    
-
+for _ in range(3):
+    h1,m1,s1,h2,m2,s2 = map(int,input().split())
+    t1 = h1 * 60 * 60 + m1 * 60 + s1
+    t2 = h2 * 60 * 60 + m2 * 60 + s2
+    t = t2 - t1
+    h = t//60//60 % 24
+    m = t//60 % 60
+    s = t%60
+    print(h,m,s)

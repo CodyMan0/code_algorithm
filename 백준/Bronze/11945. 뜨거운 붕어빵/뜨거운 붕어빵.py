@@ -1,6 +1,4 @@
-n , m = input().split()
+n , m = map(int,input().split())
 
-for i in range(1, int(n) + 1):
-    value = input()
-    print(value[::-1])
-    
+for i in range(n):
+    print(input()[::-1])

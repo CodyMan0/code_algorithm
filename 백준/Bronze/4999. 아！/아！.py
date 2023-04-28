@@ -1,18 +1,7 @@
-n = input()
-m = input()
+n1 = len(input())
+n2 = len(input())
 
-a=0
-b=0
-
-for i in range(len(n)) :
-    if n[i] =='a' : a +=1 
-
-for i in range(len(m)) :
-    if m[i] =='a' : b +=1 
-
-
-if (a < b) :
-    print('no')
-else :
+if n1 >= n2 :
     print('go')
-    
+else :
+    print('no')

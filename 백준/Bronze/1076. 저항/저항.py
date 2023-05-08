@@ -1,0 +1,17 @@
+data = dict()
+data['black'] = (0,1)
+data['brown'] = (1,10)
+data['red'] = (2,100)
+data['orange'] = (3,1000)
+data['yellow'] = (4,10000)
+data['green'] = (5,100000)
+data['blue'] = (6,1000000)
+data['violet'] = (7,10000000)
+data['grey'] = (8,100000000)
+data['white'] = (9,1000000000)
+
+n = input()
+m = input()
+k = input()
+
+print(int(str(data[n][0]) + str(data[m][0])) * data[k][1])

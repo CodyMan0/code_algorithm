@@ -41,3 +41,19 @@ mergeTwoLists([-1, -2], [1, 3, 4])
 ## 연결 리스트와 관련된 질문이었다.
 
 ## 둘다 오름차순으로 정렬되어있음.슬라이딩? 알고리즘 사용하면 안되나?
+
+# Remove Duplicates from Sorted Array
+
+
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        replace = 1
+        for i in range(1, len(nums)):
+            if nums[i - 1] != nums[i]:
+                nums[replace] = nums[i]
+                replace += 1
+        return replace

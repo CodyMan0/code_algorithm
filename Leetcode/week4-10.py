@@ -57,3 +57,32 @@ class Solution(object):
                 nums[replace] = nums[i]
                 replace += 1
         return replace
+
+
+# Remove element
+
+
+class Solution(object):
+    def removeElement(self, nums, val):
+        i = 0
+        while i < len(nums):
+            # print(i, nums[i], nums)
+            if nums[i] == val:
+                nums.pop(i)
+                continue
+            i += 1
+
+        return len(nums)
+
+
+class Solution(object):
+    def removeElement(self, nums, val):
+        i = 0
+        for x in nums:
+            if x != val:
+                nums[i] = x
+                i += 1
+        return i
+
+
+## pop하지 않고 그대로 값을 복사한다음 해당 Index만 리턴하는 방식도 있다.

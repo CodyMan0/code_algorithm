@@ -86,3 +86,20 @@ class Solution(object):
 
 
 ## pop하지 않고 그대로 값을 복사한다음 해당 Index만 리턴하는 방식도 있다.
+
+# Search Insert Position
+
+
+class Solution(object):
+    def searchInsert(self, nums, target):
+        start = 0
+        end = len(nums) - 1
+        while start <= end:
+            mid = (start + end) // 2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] > target:
+                end = mid - 1
+            else:
+                start = mid + 1
+        return start

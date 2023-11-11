@@ -118,3 +118,37 @@ class Solution(object):
             length += 1
             i -= 1
         return length
+
+# List[Int] -> List[Int]
+
+class Solution(object):
+    def plusOne(self, digits):
+        """
+        :type digits: List[int]
+        :rtype: List[int]
+        """
+        for i in range(len(digits)-1, -1, -1):
+            if digits[i] == 9: 
+                digits[i] =0
+            else : 
+                digits[i]= digits[i] + 1 
+                return digits
+        return [1] + digits 
+
+# List[Int] -> Number -> List[Int]
+
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        # List -> Number
+        n = 0
+        for ele in digits:
+            n = (n*10) + ele
+        
+        n = n+1
+        
+        # Number -> List
+        digits = []
+        while n > 0:
+            digits.insert(0, n % 10)  
+            n //= 10 
+        return digits

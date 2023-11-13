@@ -119,7 +119,9 @@ class Solution(object):
             i -= 1
         return length
 
+
 # List[Int] -> List[Int]
+
 
 class Solution(object):
     def plusOne(self, digits):
@@ -127,28 +129,53 @@ class Solution(object):
         :type digits: List[int]
         :rtype: List[int]
         """
-        for i in range(len(digits)-1, -1, -1):
-            if digits[i] == 9: 
-                digits[i] =0
-            else : 
-                digits[i]= digits[i] + 1 
+        for i in range(len(digits) - 1, -1, -1):
+            if digits[i] == 9:
+                digits[i] = 0
+            else:
+                digits[i] = digits[i] + 1
                 return digits
-        return [1] + digits 
+        return [1] + digits
+
 
 # List[Int] -> Number -> List[Int]
+
 
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         # List -> Number
         n = 0
         for ele in digits:
-            n = (n*10) + ele
-        
-        n = n+1
-        
+            n = (n * 10) + ele
+
+        n = n + 1
+
         # Number -> List
         digits = []
         while n > 0:
-            digits.insert(0, n % 10)  
-            n //= 10 
+            digits.insert(0, n % 10)
+            n //= 10
         return digits
+
+
+# ADD BINARY
+def addBinary(a, b):
+    res = ""
+    carry = 0
+    a, b = a[::-1], b[::-1]
+
+    for i in range(max(len(a), len(b))):
+        digitA = ord(a[i]) - ord("0") if i < len(a) else 0
+        digitB = ord(b[i]) - ord("0") if i < len(b) else 0
+
+        total = digitA + digitB + carry  # 1212
+        char = str(total % 2)  # '1010"
+        res = char + res  # 1 01 101 0101
+        carry = total // 2  # 0101
+        print(carry)
+    if carry:
+        res = "1" + res
+    return res
+
+
+print(addBinary("1010", "1011"))

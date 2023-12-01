@@ -12,7 +12,7 @@ class Node:
     next_node: Node | None = None
 
     def __repr__(self) -> str:
-        return '?'
+        return self.data
     
 
 
@@ -21,7 +21,7 @@ class LinkedList:
         """
         Create and initialize LinkedList class instance.
         """
-        'self ?'
+        self.head = None
 
     def __iter__(self) -> Iterator[Any]:
         """
@@ -61,7 +61,8 @@ class LinkedList:
         >>> len(linked_list)
         0
         """
-        return '?'
+        # return len(self)
+        return sum(1 for _ in self)
 
     def __repr__(self) -> str:
         """
@@ -79,7 +80,9 @@ class LinkedList:
         >>> f"{linked_list}"
         '1 -> 3 -> 5'
         """
-        return " -> ".join('?')
+        
+        # return  " -> ".join([self.data for _ in enumerate(self)])
+        return  " -> ".join([str(item) for item in self])
 
     def __getitem__(self, index: int) -> Any:
         """
@@ -126,7 +129,11 @@ class LinkedList:
             ...
         ValueError: list index out of range.
         """
-        '?'
+        if not 0 <= index < len(self):
+            raise ValueError("list index out of range.")
+        for i,node in enumerate(self): 
+            if i == index : 
+                node.data = data
 
     def insert_tail(self, data: Any) -> None:
         """
@@ -176,7 +183,24 @@ class LinkedList:
         >>> linked_list0
         first -> fourth -> second -> fifth -> third
         """
-        '?'
+        perviousNode = None
+        newNode = Node()
+        newNode.data = data
+        newNode.next_node = None
+        if not 0 <= index < len(self):
+            raise ValueError("list index out of range.")
+        if index==0:
+            newNode.next_node = self.head
+            return self
+        for i,node in enumerate(self): 
+            if i == index : 
+                perviousNode.next_node = newNode
+                newNode.next_node = node
+                return self
+            perviousNode = node
+                
+                
+        
 
     def print_list(self) -> None:  # print every node data
         """
@@ -267,7 +291,19 @@ class LinkedList:
             ...
         IndexError: List index out of range.
         """
-        '?'
+
+        perviousNode = None
+        if not 0 <= index < len(self):
+            raise ValueError("list index out of range.")
+        if index==0:
+            self.head = self.head.next_node
+            return self
+        for i,node in enumerate(self): 
+            if i == index : 
+                perviousNode.next_node = node.next_node
+                node.next_node = None
+                return self
+            perviousNode = node
 
     def is_empty(self) -> bool:
         """
@@ -395,6 +431,7 @@ def test_singly_linked_list_2() -> None:
     assert (
         str(linked_list) == "100 -> Node(77345112) -> dlrow olleH -> 7 -> 5555 -> 0 -> "
         "-192.55555 -> Hello, world! -> 77.9 -> Node(10) -> None -> None -> 12.2"
+        
     )
 
     # Delete the tail
